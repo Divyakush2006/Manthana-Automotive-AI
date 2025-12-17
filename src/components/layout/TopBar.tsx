@@ -1,0 +1,48 @@
+import { Bell, Search, User } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+
+export function TopBar() {
+  return (
+    <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
+      {/* Search */}
+      <div className="flex items-center gap-3 flex-1 max-w-md">
+        <div className="relative w-full">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <input
+            type="text"
+            placeholder="Search vehicles, components, alerts..."
+            className="w-full h-10 pl-10 pr-4 rounded-lg bg-muted/50 border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+          />
+        </div>
+      </div>
+
+      {/* Right side */}
+      <div className="flex items-center gap-4">
+        {/* Status indicator */}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-success/10 border border-success/20">
+          <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+          <span className="text-xs font-medium text-success">AI Active</span>
+        </div>
+
+        {/* Notifications */}
+        <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
+          <Bell className="w-5 h-5 text-muted-foreground" />
+          <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center bg-destructive text-destructive-foreground text-[10px]">
+            3
+          </Badge>
+        </button>
+
+        {/* User */}
+        <div className="flex items-center gap-3 pl-4 border-l border-border">
+          <div className="text-right">
+            <p className="text-sm font-medium">Fleet Manager</p>
+            <p className="text-xs text-muted-foreground">Manthana Corp</p>
+          </div>
+          <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center">
+            <User className="w-5 h-5 text-primary" />
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
